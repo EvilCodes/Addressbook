@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Observable;
 
+//The OOP Object for the addresses
 public class AddressBook extends Observable implements Serializable {
 //Observable -> Observed by the AddressBookGUI
 

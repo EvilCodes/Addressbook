@@ -1,11 +1,11 @@
 package me.paulvogel.addressbook;
 
-// Controller class to connect GUI, actual application, and file system
 
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
+// Controller class to connect GUI, actual application, and file system
 public class AddressBookController {
 
     private FileSystem fileSystem;

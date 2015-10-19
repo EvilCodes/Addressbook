@@ -3,6 +3,7 @@ package me.paulvogel.addressbook;
 import java.io.Serializable;
 import java.util.Comparator;
 
+//The OOP Object for the persons with all variables
 public class Person implements Serializable {
 
     private int personID;
@@ -80,6 +81,7 @@ public class Person implements Serializable {
         this.email = email;
     }
 
+    //To compare two persons
     public static class CompareByName implements Comparator {
 
         /**

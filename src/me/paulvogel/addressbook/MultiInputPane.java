@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//Pop-Up box for updating and creating a person
 /*
   Taken from https://github.com/mfinan-webelevate/WebelevateLabs01To05/blob/master/javabook/MultiInputBox.java
  */

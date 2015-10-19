@@ -3,6 +3,7 @@ package me.paulvogel.addressbook;
 import java.awt.*;
 import java.awt.event.WindowEvent;
 
+//Main Class
 public class AddressBookMain {
 
     public static void main(String[] args) {
@@ -15,13 +16,6 @@ public class AddressBookMain {
     public static void quitApplication() {
         //Close Frames
         final Frame[] openWindows = Frame.getFrames();
-
-        /*
-        Or:
-        for(Frame frame : Frame.getFrames)  {
-            frame.dispatchEvent ........
-        }
-         */
 
         for (final Frame openWindow : openWindows) {
             //Close frames of AddressBookGUI

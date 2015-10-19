@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 
+//The whole GUI
 public class AddressBookGUI extends JFrame implements Observer {
 //Observer -> If AddressBook (the observed) gets changed it will automatically call the update method below.
 
