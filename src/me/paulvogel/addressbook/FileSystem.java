@@ -27,13 +27,16 @@ public class FileSystem {
         }
 
         for (final String line : lineList) {
-            final String[] items = line.split(" || ");
-            if (items.length >= 9)
-                addressBook.addPerson(Integer.parseInt(items[0]), items[1], items[2], items[3], items[4], items[5], items[6], items[7], items[8]);
+            if (line != null && line != "" && line != " " && line.contains(" // ")) {
+                final String[] items = line.split(" // ");
+                if (items.length >= 9)
+                    addressBook.addPerson(Integer.parseInt(items[0]), items[1], items[2], items[3], items[4], items[5], items[6], items[7], items[8]);
+            }
         }
 
         addressBook.setChangedSinceLastSave(false);
         addressBook.setFile(bookFile);
+        addressBook.sortByName();
         return addressBook;
     }
 
@@ -52,14 +55,14 @@ public class FileSystem {
             final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter); //Buffered writer is better for many short lines
 
             for (final Person person : book.getAllPersons()) {
-                String outputString = person.getPersonID() + " || ";
-                outputString += person.getFirstName() + " || ";
-                outputString += person.getLastName() + " || ";
-                outputString += person.getAddress() + " || ";
-                outputString += person.getCity() + " || ";
-                outputString += person.getState() + " || ";
-                outputString += person.getZIP() + " || ";
-                outputString += person.getPhone() + " || ";
+                String outputString = person.getPersonID() + " // ";
+                outputString += person.getFirstName() + " // ";
+                outputString += person.getLastName() + " // ";
+                outputString += person.getAddress() + " // ";
+                outputString += person.getCity() + " // ";
+                outputString += person.getState() + " // ";
+                outputString += person.getZIP() + " // ";
+                outputString += person.getPhone() + " // ";
                 outputString += person.getEmail();
                 bufferedWriter.write(outputString);
             }

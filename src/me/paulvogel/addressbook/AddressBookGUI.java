@@ -115,9 +115,12 @@ public class AddressBookGUI extends JFrame implements Observer {
                     }
                     controller.doNew(AddressBookGUI.this);
                 } catch (IOException exception) {
+                    exception.printStackTrace();
                     reportError("Konnte nicht auf Datei schreiben:\n" + exception);
                 } catch (InterruptedException exception) {
+                    exception.printStackTrace();
                 } catch (SecurityException exception) {
+                    exception.printStackTrace();
                     reportError("Konnte wegen nicht ausreichenden Berechtigungen nicht schreiben:\n" + exception);
                 }
             }
@@ -132,11 +135,15 @@ public class AddressBookGUI extends JFrame implements Observer {
                     }
                     controller.doOpen(AddressBookGUI.this);
                 } catch (IOException exception) {
+                    exception.printStackTrace();
                     reportError("Konnte Datei nicht lesen oder schreiben:\n" + exception);
                 } catch (InterruptedException exception) {
+                    exception.printStackTrace();
                 } catch (SecurityException exception) {
+                    exception.printStackTrace();
                     reportError("Konnte wegen nicht ausreichenden Berechtigungen nicht schreiben:\n" + exception);
                 } catch (Exception exception) {
+                    exception.printStackTrace();
                     reportError("Die Datei muss eine gueltige Adressbuchdatei sein!");
                 }
             }
@@ -148,9 +155,12 @@ public class AddressBookGUI extends JFrame implements Observer {
                 try {
                     controller.doSave(AddressBookGUI.this);
                 } catch (IOException exception) {
+                    exception.printStackTrace();
                     reportError("Konnte Datei nicht schreiben:\n" + exception);
                 } catch (InterruptedException exception) {
+                    exception.printStackTrace();
                 } catch (SecurityException exception) {
+                    exception.printStackTrace();
                     reportError("Konnte wegen nicht ausreichenden Berechtigungen nicht schreiben:\n" + exception);
                 }
             }
@@ -175,9 +185,12 @@ public class AddressBookGUI extends JFrame implements Observer {
                     if (Frame.getFrames().length == 0)
                         AddressBookMain.quitApplication();
                 } catch (IOException exception) {
+                    exception.printStackTrace();
                     reportError("Konnte Datei nicht schreiben:\n" + exception);
                 } catch (InterruptedException exception) {
+                    exception.printStackTrace();
                 } catch (SecurityException exception) {
+                    exception.printStackTrace();
                     reportError("Konnte wegen nicht ausreichenden Berechtigungen nicht schreiben:\n" + exception);
                 }
 
