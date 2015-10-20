@@ -15,8 +15,9 @@ public class AddressBookController {
     }
 
     public void doAdd(AddressBookGUI gui) {
+        //Array will be displayed in the pop-up
         final String[] person = {"ID", "Vorname", "Nachname", "Strasse", "Stadt", "Bundesland", "PLZ", "Telefonnr", "Email"};
-        final String[] personData = MultiInputPane.showMultiInputDialog(gui, person, "Informationen ueber Person");
+        final String[] personData = MultiInputPane.showMultiInputDialog(gui, person, "Informationen ueber Person"); //Popup returning String-array
 
         if (personData != null)
             gui.getAddressBook().addPerson(Integer.parseInt(personData[0]), personData[1], personData[2], personData[3], personData[4], personData[5], personData[6], personData[7], personData[8]);

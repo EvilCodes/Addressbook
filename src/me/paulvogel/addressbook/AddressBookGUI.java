@@ -11,17 +11,15 @@ import java.util.Observer;
 public class AddressBookGUI extends JFrame implements Observer {
 //Observer -> If AddressBook (the observed) gets changed it will automatically call the update method below.
 
-    private NameListModel nameListModel;
+    private NameListModel nameListModel; //CustomObject declared below and used as a table for the persons information
     private JList nameList;
     private JButton addButton, editButton, deleteButton, sortByNameButton;
     private JMenuItem newItem, openItem, saveItem, quitItem;
-    private AddressBookController controller;
     private AddressBook addressBook;
 
     public AddressBookGUI(final AddressBookController controller, AddressBook addressBook) {
 
         super("Adressbuch");
-        this.controller = controller;
 
         // Create and add file menu
         JMenuBar menuBar = new JMenuBar();
@@ -41,6 +39,7 @@ public class AddressBookGUI extends JFrame implements Observer {
 
         nameListModel = new NameListModel();
 
+        //Set addressbook to update the gui when the addressbook is updated
         setAddressBook(addressBook);
 
 
@@ -59,9 +58,7 @@ public class AddressBookGUI extends JFrame implements Observer {
         nameList = new JList(nameListModel);
         JScrollPane listPane = new JScrollPane(nameList);
         nameList.setVisibleRowCount(20);
-        listPane.setBorder(BorderFactory.createCompoundBorder(
-                BorderFactory.createEmptyBorder(10, 10, 10, 10),
-                BorderFactory.createLineBorder(Color.gray, 1)));
+        listPane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10), BorderFactory.createLineBorder(Color.gray, 1)));
         getContentPane().add(listPane, BorderLayout.CENTER);
 
         //Add a new person
@@ -176,6 +173,7 @@ public class AddressBookGUI extends JFrame implements Observer {
         //Overridden by method above
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
+        //Try to save on close
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 try {
@@ -215,7 +213,8 @@ public class AddressBookGUI extends JFrame implements Observer {
         return addressBook;
     }
 
-    public void setAddressBook(AddressBook addressBook) {
+    //Add the (new) observer
+    public void setAddressBook(final AddressBook addressBook) {
         if (this.addressBook != null)
             this.addressBook.deleteObserver(this);
         this.addressBook = addressBook;

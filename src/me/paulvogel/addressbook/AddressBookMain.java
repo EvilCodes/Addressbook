@@ -7,7 +7,7 @@ import java.awt.event.WindowEvent;
 public class AddressBookMain {
 
     public static void main(String[] args) {
-        final FileSystem fileSystem = new FileSystem(); //Save files (serialization)
+        final FileSystem fileSystem = new FileSystem(); //Save files (serialization) -> Also as static methods possible
         final AddressBookController controller = new AddressBookController(fileSystem); //To connect GUI & Functions
         final AddressBookGUI gui = new AddressBookGUI(controller, new AddressBook()); //Open the GUI
         gui.setVisible(true);

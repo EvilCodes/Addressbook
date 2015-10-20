@@ -13,6 +13,7 @@ public class AddressBook extends Observable implements Serializable {
     //Similar to array
     private ArrayList<Person> collection;
     private transient File file;
+    //To check if file has changes (and has to be saved)
     private transient boolean changedSinceLastSave;
 
     public AddressBook() {
@@ -35,6 +36,7 @@ public class AddressBook extends Observable implements Serializable {
         return localPerson.getFirstName() + " " + localPerson.getLastName();
     }
 
+    //How it's displayed in the GUI
     public String getFullInfoOfPerson(int id) {
         Person localPerson = this.collection.get(id);
         return localPerson.getPersonID() + ": " + localPerson.getFirstName() + " " + localPerson.getLastName() + " in " + localPerson.getAddress() + ", " + localPerson.getCity() + ", " + localPerson.getState() + " " + localPerson.getZIP() + " (" + localPerson.getPhone() + ")";
@@ -42,10 +44,12 @@ public class AddressBook extends Observable implements Serializable {
 
     public String[] getOtherPersonInformation(int id) {
         final Person localPerson = this.collection.get(id);
+        //Creating a simple String-array
         final String[] arrayOfString = {localPerson.getAddress(), localPerson.getCity(), localPerson.getState(), localPerson.getZIP(), localPerson.getPhone(), localPerson.getEmail()};
         return arrayOfString;
     }
 
+    //Update all variables at once. If you don't want to, simply get the variables from the object and use them in the arguments
     public void updatePerson(int id, String address, String city, String state, String zip, String phone, String email) {
         this.collection.get(id).update(address, city, state, zip, phone, email);
         setChangedSinceLastSave(true);
