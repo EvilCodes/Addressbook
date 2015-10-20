@@ -88,5 +88,11 @@ public class AddressBook extends Observable implements Serializable {
         notifyObservers(); //from Observable
     }
 
+
+    //For saving all persons in a text file
+    public ArrayList<Person> getAllPersons() {
+        return this.collection;
+    }
+
 }
 
